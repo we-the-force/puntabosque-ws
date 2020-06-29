@@ -1,0 +1,26 @@
+{
+  "cwd": "/home/gamanox/dev/punta-bosque-ws",
+  "type": [
+    "web"
+  ],
+  "name": "Punta Bosque",
+  "framework": "core",
+  "template": "blank",
+  "bundler": "webpack",
+  "cssPreProcessor": "stylus",
+  "theming": {
+    "customColor": true,
+    "color": "#f3dbb3",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false,
+  "webpack": {
+    "developmentSourceMap": true,
+    "productionSourceMap": true,
+    "hashAssets": false,
+    "preserveAssetsPaths": false,
+    "inlineAssets": true
+  }
+}

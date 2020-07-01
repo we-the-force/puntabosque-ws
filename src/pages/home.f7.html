@@ -1,13 +1,14 @@
 <template>
-  <div class="page" data-name="home">
+  <div class="page" id="home" data-name="home">
     <!-- Top Navbar -->
-    <div class="navbar">
+    <div class="navbar trans-navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
         <div class="left">
           <a class="link back">
-            <i class="icon icon-back"></i>
-            <span class="if-not-md">Logo</span>
+            <!-- <i class="icon icon-back"></i> -->
+            <!-- <span class="if-not-md">Logo</span> -->
+            <img src="static/puntabosque-logo-big.png" alt="">
           </a>
         </div>
         <div class="right">
@@ -27,12 +28,140 @@
       </div>
     </div>
     <!-- Scrollable page content-->
-    <div class="page-content">
-      <div class="block block-strong">
-        <p>Here is your blank Framework7 app. Let's see what we have here.</p>
+    <div class="page-content" >
+      
+      <div class="section section-splash" style="background-image: url(static/puntabosque-portada.png);">
+        <div class="block">
+          
+        </div>
+        
       </div>
+      <div class="section section-puntabosque back-color-grey">
+        <div class="block-title text-align-center color-light">
+          PUNTA BOSQUE
+        </div>
+        <div class="block">
+          <div class="row">
+            <div class="col-10"></div>
+            <div class="col-80">
+              <p class="text-align-center color-text-white descripcion"><span class="fw-900">PUNTA BOSQUE</span>, se encuentra al norte de Saltillo, en la zona residencial más exclusiva de la ciudad. Sin duda, es el punto perfecto entre plusvalía, seguridad y el mejor lugar.</p>
+            </div>
+            <div class="col-10"></div>
+          </div>
+        </div>
+        <div class="block">
+        </div>
+        <img src="static/puntabosque-casa-01.png" alt="" class="img-100 margin-20">
+        <div class="block">
+          <div class="row">
+            <div class="col-20"></div>
+            <div class="col-60">
+              <p class="text-align-center color-text-white descripcion">Nuestra ubicación es privilegiada y con un crecimiento constante, la conexión al mejor estilo de vida.</p>
+            </div>
+            <div class="col-20"></div>
+          </div>
+        </div>
+        <div class="block back-color-grey spacer"></div>
+        
+      </div>
+      <div class="section section-features">
+        <div class="bg back-color-grey skew"></div>
+        <div class="block ">
+          <div class="row">
+            <div class="col"><img class="img-detalle img-100" src="static/puntabosque-detalle-01.png" alt=""></div>
+            <div class="col"><img class="img-detalle img-100 margin-top-120" src="static/puntabosque-detalle-02.png" alt=""></div>
+            <div class="col"><img class="img-detalle img-100" src="static/puntabosque-detalle-03.png" alt=""></div>
+            <div class="col"><img class="img-detalle img-100 margin-top-120" src="static/puntabosque-detalle-04.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-lots">
+        <div class="block spacer"></div>
+        <div class="block-title color-text-grey text-align-center">LOTES</div>
+        <div class="block">
+          <div class="row">
+            <div class="col">
+             <img src="static/Lotes_00.png" alt="" class="img-100">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-amenities">
+        <div class="block spacer"></div>
+        <div class="block">
+          <div class="row">
+            <div class="col"><img src="static/puntabosque-lote-02.png" alt="" class="img-100"></div>
+          </div>
+          
+        </div>
+        <div class="block spacer35"></div>
+        <div class="block">
+          <div class="row">
+            <div class="col-10"></div>
+            <div class="col-40">
+              <div class="block-title color-text-grey">
+                AMENIDADES
+              </div>
+              <div class="block">
+                <p class="descripcion">
+                  Goza de amenidades funcionales y en armonía con tu entorno.
+                  <br>1. Gimnasio equipado
+                  <br>2. Trota pista
+                  <br>3. Terraza Social
+                  <br>4. Pet park
+                  <br>5. Área de juegos
+                  <br>6. Bosque de lectura
+                </p>
+              </div>
+            </div>
+            <div class="col-40">
+              <div class="block-title color-text-grey">
+                ÁREAS VERDERS
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="block-title color-text-grey">10,701 m2</div>
+                  <div class="block">
+                    <p class="descripcion">De áreas verdes integradas a éste proyecto.</p>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="block-title color-text-grey">407</div>
+                  <div class="block">
+                    <p class="descripcion">Árboles de diferentes especies y jardinería decorativa.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="block">
+                <p class="descripcion">
 
+                </p>
+              </div>
+            </div>
+            <div class="col-10"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section section-gallery">
+        <div class="block spacer35"></div>
+        <div class="block">
+          <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="50" class="swiper-container swiper-init demo-swiper">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="static/Galeria_00.png" alt=""></div>
+              <div class="swiper-slide"><img src="static/Galeria_01.png" alt=""></div>
+              <div class="swiper-slide"><img src="static/Galeria_02.png" alt=""></div>
+              <div class="swiper-slide"><img src="static/Galeria_03.png" alt=""></div>
+              <div class="swiper-slide"><img src="static/Galeria_04.png" alt=""></div>
+              <div class="swiper-slide"><img src="static/Galeria_05.png" alt=""></div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </div>
 </template>
 <script>

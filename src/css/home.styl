@@ -7,7 +7,25 @@
             &:after
                 display none
         .right
-            
+            &.menu-icon
+                display none
+                .menu
+                    color: #ebd9b2
+                    .menu-item
+                        background-color transparent
+                    .menu-item.menu-item-dropdown-opened , .menu-dropdown
+                        background-color #605e5c
+                    .menu-item-content
+                        &:after
+                            display none
+                        color #ebd9b2
+                    .menu-dropdown
+                        &:before
+                            background-image radial-gradient(at 0% 0%, transparent 0%, transparent 70%, #605e5c 72%)
+                    .menu-dropdown-content
+                        background-color #605e5c
+                        a,span
+                            color #ebd9b2
             .link
                 text-transform uppercase
                 font-weight 700
@@ -108,3 +126,16 @@
                 margin-top 3px
         
 
+@media (max-width: 767px)
+    #home
+        .navbar-inner
+            overflow visible
+        .trans-navbar .right.menu-text
+            display none
+        .trans-navbar .right.menu-icon
+            display block
+            margin-right 30px
+        .logo-puntabosque
+            img
+                width 100px
+                height auto

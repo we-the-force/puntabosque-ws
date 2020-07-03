@@ -1,40 +1,63 @@
 #home
     .trans-navbar
         .navbar-bg
-            background: transparent
+            background transparent
+
             &:before
                 display none
+
             &:after
                 display none
+
         .right
             &.menu-text
                 margin-right 30px
+
             &.menu-icon
                 display none
+
                 .menu
-                    color: #ebd9b2
+                    color #ebd9b2
+
                     .menu-item
                         background-color transparent
-                    .menu-item.menu-item-dropdown-opened , .menu-dropdown
+
+                    .menu-item.menu-item-dropdown-opened, .menu-dropdown
                         background-color #605e5c
+
                     .menu-item-content
                         &:after
                             display none
+
                         color #ebd9b2
+
                     .menu-dropdown
                         &:before
                             background-image radial-gradient(at 0% 0%, transparent 0%, transparent 70%, #605e5c 72%)
+
                     .menu-dropdown-content
                         background-color #605e5c
-                        a,span
+
+                        a, span
                             color #ebd9b2
+
             .link
                 text-transform uppercase
                 font-weight 700
                 font-size 18px
-                color: #333333
-                opacity: 0.5
+                color #333333
+                opacity 0.5
                 line-height 1
+
+        &.black-version
+            .navbar-bg
+                background #333333
+
+            .right
+                .link
+                    color rgba(235, 217, 178, 0.5)
+                    line-height 21px
+
     .page-content
         padding-top 0
 
@@ -44,24 +67,32 @@
                 font-weight 700
                 font-size 32px
                 line-height 1
+
             p.descripcion
                 font-size 24px
+
             .img-100
                 width 100%
                 height auto
+
             .margin-20
                 margin-top 20px
                 margin-bottom 20px
+
             .margin-top-120
                 margin-top 120px
+
             .spacer
-                height: 100px
+                height 100px
+
             .spacer35
-                height: 15px
+                height 15px
+
             .skew
                 padding 200px 0
                 transform skew(0deg, -10deg)
                 margin-top -200px
+
             p.texto
                 font-size 18px
 
@@ -70,55 +101,67 @@
 
         .section-splash
             padding-bottom 0px
-            background-repeat: no-repeat
+            background-repeat no-repeat
             background-position 50% 0
             background-size cover
+
             .block
                 margin-top 0
                 margin-bottom 0
-                min-height: 900px
+                min-height 900px
+
         .section-features
             .bg
                 position absolute
                 height 200px
                 width 100%
+
         .section-gallery
             .swiper-pagination
                 bottom 0
+
             .swiper-container
                 .swiper-wrapper
                     .swiper-slide
                         img
                             width 100%
                             height auto
+
         .section-contact
             background-color #d3d1ce
             padding-bottom 32px
+
             .address
                 font-size 18px
                 font-weight 700
                 line-height 1
+
             #contact-form
                 ul
                     &:after
                         display none
+
                     &:before
                         display none
+
                     background transparent
+
                     input, textarea
                         background-color #fff
+
         #map
             width 100%
-            height: 400px
-        
+            height 400px
+
         .footer
             padding-top 32px
             padding-bottom 32px
             background-color #333
+
             a.link
                 display inline-block
                 margin-right 5px
-        
+
             p.texto
                 font-size 18px
                 font-weight 400
@@ -126,17 +169,19 @@
                 margin-top 0
                 margin-bottom 0
                 margin-top 3px
-        
 
-@media (max-width: 767px)
+@media (max-width 767px)
     #home
         .navbar-inner
             overflow visible
+
         .trans-navbar .right.menu-text
             display none
+
         .trans-navbar .right.menu-icon
             display block
             margin-right 30px
+
         .logo-puntabosque
             img
                 width 100px

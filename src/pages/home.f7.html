@@ -12,16 +12,16 @@
           </a>
         </div>
         <div class="right menu-text">
-          <a class="link">
+          <a href="punta-bosque" class="menu-pb link menu-punta-bosque">
             Punta Bosque
           </a>
-          <a class="link">
+          <a href="lotes" class="menu-pb link menu-lotes">
             Lotes
           </a>
-          <a class="link">
+          <a href="desarrollo" class="menu-pb link menu-desarrollo">
             Desarrollo
           </a>
-          <a class="link">
+          <a href="contacto" class="menu-pb link menu-contacto">
             Contacto
           </a>
         </div>
@@ -38,16 +38,16 @@
                 </div>
                 <div class="menu-dropdown menu-dropdown-right">
                   <div class="menu-dropdown-content">
-                    <a href="#" class="menu-dropdown-link menu-close">
+                    <a href="#" class="menu-pb menu-dropdown-link menu-close menu-punta-bosque">
                       <span>Punta Bosque</span>
                     </a>
-                    <a href="#" class="menu-dropdown-link menu-close">
+                    <a href="#" class="menu-pb menu-dropdown-link menu-close menu-lotes">
                       <span>Lotes</span>
                     </a>
-                    <a href="#" class="menu-dropdown-link menu-close">
+                    <a href="#" class="menu-pb menu-dropdown-link menu-close menu-desarrollo">
                       <span>Desarrollo</span>
                     </a>
-                    <a href="#" class="menu-dropdown-link menu-close">
+                    <a href="#" class="menu-pb menu-dropdown-link menu-close menu-contacto">
                       <span>Contacto</span>
                     </a>
                     
@@ -62,14 +62,14 @@
     <!-- Scrollable page content-->
     <div class="page-content hide-navbar-on-scroll" >
       
-      <div class="section section-splash" style="background-image: url();">
+      <div class="seccion section section-splash" id="punta-bosque" style="background-image: url();">
         <img src="static/puntabosque-portada.png" alt="" class="img-100">
         <!-- <div class="block">
           
         </div> -->
         
       </div>
-      <div class="section section-puntabosque back-color-grey">
+      <div class="seccion section-puntabosque back-color-grey">
         <div class="block-title text-align-center color-light">
           PUNTA BOSQUE
         </div>
@@ -97,7 +97,7 @@
         <div class="block back-color-grey spacer"></div>
         
       </div>
-      <div class="section section-features">
+      <div class="seccion section-features">
         <div class="bg back-color-grey skew"></div>
         <div class="block ">
           <div class="row">
@@ -108,7 +108,7 @@
           </div>
         </div>
       </div>
-      <div class="section section-lots">
+      <div class="seccion section section-lots" id="lotes">
         <div class="block spacer"></div>
         <div class="block-title color-text-grey text-align-center">LOTES</div>
         <div class="block">
@@ -119,7 +119,7 @@
           </div>
         </div>
       </div>
-      <div class="section section-amenities">
+      <div class="seccion section section-amenities" id="desarrollo">
         <div class="block spacer"></div>
         <div class="block">
           <div class="row">
@@ -186,7 +186,7 @@
         </div>
       </div>
       
-      <div class="section section-gallery">
+      <div class="seccion section-gallery">
         <div class="block spacer35"></div>
         <div class="block">
           <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="50" class="swiper-container swiper-init demo-swiper">
@@ -204,7 +204,7 @@
         </div>
       </div>
 
-      <div class="section section-developers">
+      <div class="seccion section-developers">
         <div class="block spacer35"></div>
         <div class="block-title text-align-center color-text-grey">DESARROLLADORES</div>
         <div class="block spacer35"></div>
@@ -223,7 +223,7 @@
         <div class="block spacer"></div>
       </div>
 
-      <div class="section section-contact">
+      <div class="seccion section section-contact" id="contacto">
         <div class="block spacer35"></div>
         <div class="block-title text-align-center color-text-grey">CONTACTO</div>
         <div class="block spacer35"></div>
@@ -349,15 +349,41 @@
   </div>
 </template>
 <script>
+import $$ from 'dom7';
 export default {
   on: {
-    pageAfterIn: function(e, page) {
+    pageMounted: function(e, page) {
+      console.log('mounted');
+      $$('.menu-pb').on('click', function(ev){
+        ev.preventDefault();
+        console.log('click pb');
+
+      });
+      $$(document).on('scroll', function(event){
+          console.log('scroll');
+            $$('.section').each(function()
+            {
+                if ( $$(this).offset().top < window.pageYOffset + 10 
+                &&   $$(this).offset().top + 
+                     $$(this).height() > window.pageYOffset + 10
+                   ) 
+                {
+                  var currectSection = $$(this).attr('id');
+                  console.log(currentSection);
+                  $$('.menu-pb').removeClass('active');
+                  $$('.menu-'+currentSection).addClass('active');
+                  // window.location.hash = data;
+
+                }
+            });
+      });
       var pos = { lat: 25.43, lng: -101.00 };
       var map = new google.maps.Map(document.getElementById("map"), {
           zoom: 14,
           center: pos,
           disableDefaultUI: true
       });
+      
     }
   }
 }

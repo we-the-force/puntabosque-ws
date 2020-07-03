@@ -12,16 +12,16 @@
           </a>
         </div>
         <div class="right menu-text">
-          <a href="punta-bosque" class="menu-pb link menu-punta-bosque">
+          <a href="punta-bosque" class="menu-pb link menu-punta-bosque" data-id="punta_bosque">
             Punta Bosque
           </a>
-          <a href="lotes" class="menu-pb link menu-lotes">
+          <a href="lotes" class="menu-pb link menu-lotes" data-id="lotes">
             Lotes
           </a>
-          <a href="desarrollo" class="menu-pb link menu-desarrollo">
+          <a href="desarrollo" class="menu-pb link menu-desarrollo" data-id="desarrollo">
             Desarrollo
           </a>
-          <a href="contacto" class="menu-pb link menu-contacto">
+          <a href="contacto" class="menu-pb link menu-contacto" data-id="contacto">
             Contacto
           </a>
         </div>
@@ -69,7 +69,7 @@
         </div> -->
         
       </div>
-      <div class="seccion section-puntabosque back-color-grey">
+      <div class="seccion section-puntabosque back-color-grey" id="punta_bosque">
         <div class="block-title text-align-center color-light">
           PUNTA BOSQUE
         </div>
@@ -355,10 +355,17 @@ export default {
     pageMounted: function(e, page) {
       console.log('mounted');
       $$('.menu-pb').on('click', function(ev){
-        ev.preventDefault();
-        console.log('click pb');
+        let id = $$(this).data('id')
+        document.getElementById(id).scrollIntoView({
+          behavior: 'smooth'
+        });
 
       });
+/* 
+      document.getElementById('id').scrollIntoView({
+  behavior: 'smooth'
+});
+ */
       $$(document).on('scroll', function(event){
           console.log('scroll');
             $$('.section').each(function()

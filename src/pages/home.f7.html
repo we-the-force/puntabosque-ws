@@ -366,7 +366,7 @@
         
         $$('.menu-pb').on('click', function (ev) {
           let id = $$(this).data('id')
-          let position = $$('.page-content').scrollTop() + $$("#" + id).offset().top - 100
+          let position = $$('.page-content').scrollTop() + $$("#" + id).offset().top - 80
           position = position < 0 ? 0 : position
           console.log(position);
           $$('.page-content')[0].scrollTo({ top: position, behavior: 'smooth' })

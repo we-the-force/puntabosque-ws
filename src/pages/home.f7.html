@@ -394,7 +394,38 @@
   export default {
     on: {
       pageMounted: function (e, page) {
+        var self = this;
+        var app = self.$app;
 
+        console.log(page.route.context.lotes.data);
+
+        var obj = page.route.context.lotes.data;
+
+        console.log(page.route.context.lotes.data);
+
+        for(var i=0;i<obj.length; i++)
+        {
+            console.log(obj[i]);
+
+            $$('#'+obj[i].id_string+'-fill').addClass('lote');
+            if(obj[i].lote_status)
+            {
+                $$('#'+obj[i].id_string+'-fill').addClass('disponible');
+            }
+            else
+            {
+                $$('#'+obj[i].id_string+'-fill').addClass('nodisponible');
+            }
+
+            $$('#'+obj[i].id_string+'-fill').attr('data-id', i.toString());
+        }
+
+        $$('.lote').on('click', function (e) {
+              var _id = $$(this).data('id');
+              app.dialog.alert('Este lote cuesta $'+obj[_id].lote_costo+' y tiene ' + obj[_id].lote_area_metros, 'Lote ' + obj[_id].lote_name);
+        });  
+
+        console.log('mounted');
         $$('.menu-pb').on('click', function (ev) {
           let id = $$(this).data('id')
           let position = $$('.page-content').scrollTop() + $$("#" + id).offset().top - 80

@@ -287,10 +287,10 @@
                     </form>
                     <div class="block">
                       <div class="row">
-                        <div class="col"></div>
-                        <div class="col" style="margin-left: auto; margin-right: auto;"><a
+                        <div class="col no-mob"></div>
+                        <div class="col w-mob-50" style="margin-left: auto; margin-right: auto;"><a
                             class="button button-raised button-fill button-round" href="#">Enviar</a></div>
-                        <div class="col"></div>
+                        <div class="col no-mob"></div>
                       </div>
                     </div>
                   </div>
@@ -362,14 +362,14 @@
   import $$ from 'dom7';
   export default {
     on: {
-      pageMounted: function (e, page) {
-        console.log('mounted');
+      pageMounted: function (e, page) { 
+        
         $$('.menu-pb').on('click', function (ev) {
           let id = $$(this).data('id')
-          document.getElementById(id).scrollIntoView({
-            behavior: 'smooth'
-          });
-
+          let position = $$('.page-content').scrollTop() + $$("#" + id).offset().top - 100
+          position = position < 0 ? 0 : position
+          console.log(position);
+          $$('.page-content')[0].scrollTo({ top: position, behavior: 'smooth' })
         });
 
         $$('.page-content').off('scroll');
@@ -405,6 +405,8 @@
           disableDefaultUI: true
         });
 
+      },
+      pageInit: function (e, page) {
       }
     }
   }

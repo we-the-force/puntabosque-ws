@@ -120,10 +120,10 @@
         <div class="block">
           <div class="row">
             <div class="col">
-              <!-- <img src="static/Lotes_00.png" alt="" class="img-100"> -->
- 
+              <img src="static/Lotes_00.png" alt="" class="img-100">
+              <a href="#" class="button button-fill ver-lotes">Ver distribución</a>
 
-              <svg id="pb-mapa" width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" class="img-100">
+              <!-- <svg id="pb-mapa" width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg" class="img-100">
                 <g id="Lotes">
                 <g id="H">
                 <g id="H-01">
@@ -907,7 +907,7 @@
                 <path id="Vector_245" d="M575.9 477.1C575.9 469.2 569.5 462.7 561.5 462.7C553.6 462.7 547.1 469.1 547.1 477.1C547.1 485 553.5 491.5 561.5 491.5C569.4 491.5 575.9 485 575.9 477.1Z" fill="#D3D3D3"/>
                 </g>
                 </g>
-                </svg>
+                </svg> -->
                 
 
 
@@ -1156,39 +1156,40 @@
       pageMounted: function (e, page) {
         var self = this;
         var app = self.$app;
-
-        //console.log(page.route.context.lotes.data);
+        var myPhotoBrowserDark = app.photoBrowser.create({
+            photos : [
+                'static/encinos-lotes.jpg',
+            ],
+            theme: 'dark'
+        });
 
         // var obj = page.route.context.lotes.data;
-        var obj = page.route.context.lotes.data;
 
-        //console.log(page.route.context.lotes.data);
 
-        for(var i=0;i<obj.length; i++)
-        {
-            //console.log(obj[i].id_string);
+        // for(var i=0;i<obj.length; i++)
+        // {
 
-            //console.log($$('#'+obj[i].id_string + '-Vector'));
 
-            $$('#'+obj[i].id_string + '-Vector').addClass('lote');
-            if(obj[i].lote_status)
-            {
-                $$('#'+obj[i].id_string + '-Vector').addClass('disponible');
-            }
-            else
-            {
-                $$('#'+obj[i].id_string + '-Vector').addClass('nodisponible');
-            }
+        //     $$('#'+obj[i].id_string + '-Vector').addClass('lote');
+        //     if(obj[i].lote_status)
+        //     {
+        //         $$('#'+obj[i].id_string + '-Vector').addClass('disponible');
+        //     }
+        //     else
+        //     {
+        //         $$('#'+obj[i].id_string + '-Vector').addClass('nodisponible');
+        //     }
 
-            $$('#'+obj[i].id_string + '-Vector').attr('data-id', i.toString());
-        }
+        //     $$('#'+obj[i].id_string + '-Vector').attr('data-id', i.toString());
+        // }
 
-        $$('.lote').on('click', function (e) {
-              var _id = $$(this).data('id');
-              app.dialog.alert('Este lote cuesta $'+obj[_id].lote_costo+' y tiene ' + obj[_id].lote_area_metros, 'Lote ' + obj[_id].lote_name);
-        });  
-
-        console.log('mounted');
+        // $$('.lote').on('click', function (e) {
+        //       var _id = $$(this).data('id');
+        //       app.dialog.alert('Este lote cuesta $'+obj[_id].lote_costo+' y tiene ' + obj[_id].lote_area_metros, 'Lote ' + obj[_id].lote_name);
+        // });  
+        $$('.ver-lotes').on('click', function () {
+          myPhotoBrowserDark.open();
+        });
         $$('.menu-pb').on('click', function (ev) {
           let id = $$(this).data('id')
           let position = $$('.page-content').scrollTop() + $$("#" + id).offset().top - 80

@@ -1160,7 +1160,23 @@
             photos : [
                 'static/encinos-lotes.jpg',
             ],
-            theme: 'dark'
+            theme: 'dark',
+            swiper: {
+              
+              preloadImages: true,
+              navigation: {
+                nextEl: '.photo-browser-next',
+                prevEl: '.photo-browser-prev',
+              },
+              zoom: {
+                enabled: true,
+                maxRatio: 5,
+                minRatio: 1,
+              },
+              lazy: {
+                enabled: true,
+              },
+            },
         });
 
         // var obj = page.route.context.lotes.data;

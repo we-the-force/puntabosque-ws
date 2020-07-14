@@ -196,34 +196,29 @@
 
 @media (max-width 767px)
     .ios
-        &.black-version
-            height 80px
+        .logo-puntabosque
+            img
+                width 100px
+                height auto
 
-            .left
-                img
-                    height 54px
+        .col
+            &.no-mob
+                display none
 
-            .navbar-bg
-                background #333333
+            &.w-mob-50
+                width 50%
+        .navbar-inner
+            overflow visible
 
-            .right
-                .link
-                    color rgba(235, 217, 178, 0.5)
-                    line-height 21px
-
-                    &.active
-                        color #EBD9B2
-    .ios .navbar-inner
-        overflow visible
-    .ios
-        .navbar .right.menu-text
+            .navbar .right.menu-text
+                display none
+        .trans-navbar .right.menu-text
             display none
-    .ios .trans-navbar .right.menu-text
-        display none
 
-    .ios .trans-navbar .right.menu-icon
-        display block
-        margin-right 30px
+        .trans-navbar .right.menu-icon
+            display block
+            margin-right 30px
+    
     #home
         
         .navbar-inner

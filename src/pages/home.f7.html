@@ -1154,6 +1154,9 @@
   export default {
     on: {
       pageMounted: function (e, page) {
+        document.addEventListener('gesturestart', function (egg) {
+            egg.preventDefault();
+        });
         var self = this;
         var app = self.$app;
         var myPhotoBrowserDark = app.photoBrowser.create({

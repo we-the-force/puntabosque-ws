@@ -1,5 +1,21 @@
 .ios
     .trans-navbar
+        height 80px
+
+        .left
+            img
+                height 54px
+
+        .navbar-bg
+            background #333333
+
+        .right
+            .link
+                color rgba(235, 217, 178, 0.5)
+                line-height 21px
+
+                &.active
+                    color #EBD9B2
         .navbar-bg
             background transparent
             background-filter none
@@ -9,6 +25,33 @@
 
             &:after
                 display none
+    .menu-icon
+        display none
+
+        .menu
+            color #ebd9b2
+
+            .menu-item
+                background-color transparent
+
+            .menu-item.menu-item-dropdown-opened, .menu-dropdown
+                background-color #605e5c
+
+            .menu-item-content
+                &:after
+                    display none
+
+                color #ebd9b2
+
+            .menu-dropdown
+                &:before
+                    background-image radial-gradient(at 0% 0%, transparent 0%, transparent 70%, #605e5c 72%)
+
+            .menu-dropdown-content
+                background-color #605e5c
+
+                a, span
+                    color #ebd9b2
 
 #home
     .ver-lotes

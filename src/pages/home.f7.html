@@ -1209,6 +1209,11 @@
         // });  
         $$('.ver-lotes').on('click', function () {
           myPhotoBrowserDark.open();
+          myPhotoBrowserDark.on('opened', function(ev){
+            console.log(myPhotoBrowserDark);
+            myPhotoBrowserDark.swiper.zoom.in();
+          });
+
         });
         $$('.menu-pb').on('click', function (ev) {
           let id = $$(this).data('id')

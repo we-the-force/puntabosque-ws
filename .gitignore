@@ -13,7 +13,7 @@ pids
 *.pid.lock
 
 # Dependency directories
-# node_modules/
+ node_modules/
 
 # Optional npm cache directory
 .npm
@@ -37,5 +37,5 @@ Thumbs.db
 
 
 # Production build
-www/
+#www/
 package-lock.json

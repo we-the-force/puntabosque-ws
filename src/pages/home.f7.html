@@ -987,8 +987,9 @@
         <div class="block spacer35"></div>
         <div class="block">
           <div data-pagination='{"el": ".swiper-pagination"}' data-space-between="50"
-            class="swiper-container swiper-init demo-swiper">
+            class="swiper-container demo-swiper">
             <div class="swiper-pagination"></div>
+            
             <div class="swiper-wrapper">
               <div class="swiper-slide"><img src="static/Galeria_00.png" alt=""></div>
               <div class="swiper-slide"><img src="static/Galeria_01.png" alt=""></div>
@@ -998,6 +999,8 @@
               <div class="swiper-slide"><img src="static/Galeria_05.png" alt=""></div>
 
             </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
         </div>
       </div>
@@ -1159,7 +1162,23 @@
         });
         var self = this;
         var app = self.$app;
+        var swiper = app.swiper.create('.demo-swiper', {
+            speed: 400,
+            spaceBetween: 100,
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              type: 'bullets',
+            },
+        });
+        // swiper.navigation.nextEl('.swiper-button-next');
+        // swiper.navigation.prevEl('.swiper-button-prev');
+        
         var myPhotoBrowserDark = app.photoBrowser.create({
+            popupCloseLinkText: 'Cerrar',
             photos : [
                 'static/encinos-lotes.jpg',
             ],
@@ -1174,7 +1193,7 @@
               zoom: {
                 enabled: true,
                 maxRatio: 10,
-                minRatio: 10,
+                minRatio: 3,
                 toggle: true
               },
               lazy: {
@@ -1211,7 +1230,7 @@
           myPhotoBrowserDark.open();
           myPhotoBrowserDark.on('opened', function(ev){
             console.log(myPhotoBrowserDark);
-            myPhotoBrowserDark.swiper.zoom.in();
+            // myPhotoBrowserDark.swiper.zoom.in();
           });
 
         });

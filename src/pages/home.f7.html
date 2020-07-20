@@ -1231,9 +1231,11 @@
           myPhotoBrowserDark.on('opened', function(ev){
             console.log(myPhotoBrowserDark);
           $$('#zoom-toggle').addClass('active');
-          $$('#zoom-toggle').on('click', function(eve){
-            $$('#zoom-toggle').toggleClass('zoomed');
-            myPhotoBrowserDark.swiper.zoom.toggle();
+          $$('#zoom-toggle .zoom-in').on('click', function(eve){
+            myPhotoBrowserDark.swiper.zoom.in();
+          });
+          $$('#zoom-toggle .zoom-out').on('click', function(eve){
+            myPhotoBrowserDark.swiper.zoom.out();
           });
             // myPhotoBrowserDark.swiper.zoom.in();
           });

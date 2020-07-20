@@ -1180,7 +1180,7 @@
         var myPhotoBrowserDark = app.photoBrowser.create({
             popupCloseLinkText: 'Cerrar',
             photos : [
-                'static/encinos-lotes.jpg',
+                'static/puntabosque-lotes.jpg',
             ],
             theme: 'dark',
             swiper: {
@@ -1230,6 +1230,17 @@
           myPhotoBrowserDark.open();
           myPhotoBrowserDark.on('opened', function(ev){
             console.log(myPhotoBrowserDark);
+          $$('#zoom-toggle').addClass('active');
+          $$('#zoom-toggle').on('click', function(eve){
+            $$('#zoom-toggle').toggleClass('zoomed');
+            myPhotoBrowserDark.swiper.zoom.toggle();
+          });
+            // myPhotoBrowserDark.swiper.zoom.in();
+          });
+          myPhotoBrowserDark.on('closed', function(ev){
+            console.log(myPhotoBrowserDark);
+          $$('#zoom-toggle').removeClass('active');
+
             // myPhotoBrowserDark.swiper.zoom.in();
           });
 

@@ -3,7 +3,7 @@ import HomePage from '../pages/home.f7.html';
 
 var routes = [
   {
-    path: '(.*)',
+    path: '/',
 
     async: function (routeTo, routeFrom, resolve, reject) {
       // Router instance

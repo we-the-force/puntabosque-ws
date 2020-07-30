@@ -120,8 +120,11 @@
         <div class="block">
           <div class="row">
             <div class="col">
+              <div class="block">
+                <div class="button button-fill ver-lotes">área y medidas</div>
+              </div>
               <img src="static/render.png" alt="" class="img-100">
-              <a href="#" class="button button-fill ver-lotes">Ver distribución</a>
+              <!-- <a href="#" class="button button-fill ver-lotes">Ver distribución</a> -->
 
               
                 
@@ -329,7 +332,7 @@
                 <div class="col-100 medium-50">
                   <div class="block-title address color-text-grey">DESARROLLO</div>
                   <p class="texto color-text-grey2">Blvd. Eulalio Gutierrez, Los Gonzalez. <br>Saltillo, Coahuila.
-                    <br>Informes: (844) 277 - 4460 / (844) 415 - 1480</p>
+                    <br>Informes: <a href="tel:8442774460" class="link external tellink">(844) 277 - 4460</a> / <a href="tel:8444151480" class="link external tellink">(844) 415 - 1480</a></p>
                 </div>
               </div>
             </div>
@@ -338,7 +341,9 @@
         </div>
       </div>
 
-      <div id="map"></div>
+      <div class="block">
+        <a href="https://www.google.com/maps?ll=25.457596,-100.990662&z=16&t=m&hl=en&gl=MX&mapclient=embed&q=Blvrd+Jos%C3%A9+Sarmiento+1515+25240+Saltillo,+Coah." class="mapbutton link external" target="_blank">CÓMO LLEGAR</a>
+      </div>
 
       <div class="footer">
         <div class="block spacer35"></div>
@@ -498,11 +503,11 @@
         });
 
         var pos = { lat: 25.43, lng: -101.00 };
-        var map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 14,
-          center: pos,
-          disableDefaultUI: true
-        });
+        // var map = new google.maps.Map(document.getElementById("map"), {
+        //   zoom: 14,
+        //   center: pos,
+        //   disableDefaultUI: true
+        // });
 
       },
       pageInit: function (e, page) {

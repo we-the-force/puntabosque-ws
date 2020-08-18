@@ -378,11 +378,13 @@
   export default {
     on: {
       pageMounted: function (e, page) {
+
         document.addEventListener('gesturestart', function (egg) {
             egg.preventDefault();
         });
         var self = this;
         var app = self.$app;
+       
         var swiper = app.swiper.create('.demo-swiper', {
             speed: 400,
             spaceBetween: 100,
@@ -450,39 +452,44 @@
         $$('.ver-lotes').on('click', function () {
           
           myPhotoBrowserDark.open();
-          myPhotoBrowserDark.on('opened', function(ev){
-            var swiperZoom=1;
-            console.log(myPhotoBrowserDark);
-          $$('#zoom-toggle').addClass('active');
-          $$('#zoom-toggle .zoom-in').on('click', function(eve){
-            console.log('zoom before: '+swiperZoom);
-            if(swiperZoom<9){
-              swiperZoom=swiperZoom+2.5;
-            $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
-            myPhotoBrowserDark.swiper.zoom.in();
-            console.log('zoom after: '+swiperZoom);
+          if(app.device.desktop){
 
-            }
-          });
-          $$('#zoom-toggle .zoom-out').on('click', function(eve){
-            if(swiperZoom>1){
-            console.log('zoom before: '+swiperZoom);
+            myPhotoBrowserDark.on('opened', function(ev){
+              var swiperZoom=1;
+              console.log(myPhotoBrowserDark);
+            $$('#zoom-toggle').addClass('active');
+            $$('#zoom-toggle .zoom-in').on('click', function(eve){
+              console.log('zoom before: '+swiperZoom);
+              if(swiperZoom<9){
+                swiperZoom=swiperZoom+2.5;
+              $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
+              myPhotoBrowserDark.swiper.zoom.in();
+              console.log('zoom after: '+swiperZoom);
 
-              swiperZoom=swiperZoom-2.5;
-            $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
-              myPhotoBrowserDark.swiper.zoom.out();
-            console.log('zoom after: '+swiperZoom);
+              }
+            });
+            $$('#zoom-toggle .zoom-out').on('click', function(eve){
+              if(swiperZoom>1){
+              console.log('zoom before: '+swiperZoom);
+
+                swiperZoom=swiperZoom-2.5;
+              $$('.swiper-zoom-container').attr('data-swiper-zoom', swiperZoom);
+                myPhotoBrowserDark.swiper.zoom.out();
+              console.log('zoom after: '+swiperZoom);
 
 
-            }
+              }
 
-          });
-          });
-          myPhotoBrowserDark.on('closed', function(ev){
-            console.log(myPhotoBrowserDark);
-          $$('#zoom-toggle').removeClass('active');
+            });
+            });
+            myPhotoBrowserDark.on('closed', function(ev){
+              console.log(myPhotoBrowserDark);
+            $$('#zoom-toggle').removeClass('active');
 
-          });
+            });
+
+          }
+         
 
         });
         $$('.menu-pb').on('click', function (ev) {

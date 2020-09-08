@@ -263,7 +263,7 @@
                           <div class="item-inner">
                             <!-- <div class="item-title ">Nombre</div> -->
                             <div class="item-input-wrap">
-                              <input type="text" placeholder="Nombre">
+                              <input id="inp-nombre" type="text" placeholder="Nombre">
                               <span class="input-clear-button"></span>
                             </div>
                           </div>
@@ -273,7 +273,7 @@
                           <div class="item-inner">
                             <!-- <div class="item-title ">Correo</div> -->
                             <div class="item-input-wrap">
-                              <input type="email" placeholder="Correo">
+                              <input id="inp-email" type="email" placeholder="Correo">
                               <span class="input-clear-button"></span>
                             </div>
                           </div>
@@ -283,8 +283,8 @@
                           <div class="item-inner">
                             <!-- <div class="item-title ">Teléfono</div> -->
                             <div class="item-input-wrap">
-                              <input type="tel" placeholder="Teléfono">
-                              <span class="input-clear-button"></span>
+                              <input type="tel" id="inp-tel" placeholder="Teléfono" maxlength="10" minlength="10" >
+                              <span class="input-clear-button" ></span>
                             </div>
                           </div>
                         </li>
@@ -293,7 +293,7 @@
                           <div class="item-inner">
                             <!-- <div class="item-title ">Mensaje</div> -->
                             <div class="item-input-wrap">
-                              <textarea placeholder="Mensaje"></textarea>
+                              <textarea placeholder="Mensaje" id="inp-msg"></textarea>
                               <span class="input-clear-button"></span>
                             </div>
                           </div>
@@ -304,7 +304,7 @@
                       <div class="row">
                         <div class="col no-mob"></div>
                         <div class="col w-mob-50" style="margin-left: auto; margin-right: auto;"><a
-                            class="button button-raised button-fill button-round" href="#">Enviar</a></div>
+                            class="button button-raised button-fill button-round" id="contacto-btn" href="#">Enviar</a></div>
                         <div class="col no-mob"></div>
                       </div>
                     </div>
@@ -380,6 +380,61 @@
   export default {
     on: {
       pageMounted: function (e, page) {
+        function validateEmail(inputText)
+        {
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(inputText.match(mailformat))
+        {
+        
+        return true;
+        }
+        else
+        {
+        
+        return false;
+        }
+        }
+
+
+        $$('#contacto-btn').on('click', function(evv){
+          var email = $$('#inp-email').val();
+          evv.preventDefault();
+          console.log($$('#inp-nombre').val());
+          if($$('#inp-nombre').val()!==''){
+            if($$('#inp-tel').val()!=='' && $$('#inp-tel').val().length>9){
+              if(email!=='' && validateEmail(email)){
+                app.preloader.show();
+
+                Email.send({
+                    SecureToken : "1d29c41f-5298-487e-a8e6-52e3e2217da9",
+                    To : 'jorge.bosque@viacoconsa.com',
+                    From : 'contacto@punta-bosque.com',
+                    Subject : "Formulario de Punta Bosque",
+                    Body : 'Mensaje de '+$$('#inp-nombre').val('')+', con teléfono: '+$$('#inp-tel').val('')+' , correo: '+$$('#inp-email').val()+' , mensaje: '+$$('#inp-msg').val()
+                }).then(message => {
+                  app.preloader.hide();
+                  app.dialog.alert('Su información se ha enviado, en un momento uno de nuestros asesores se pondrá en contacto con usted. gracias.','Formulario enviado',function(){
+                    $$('#inp-nombre').val('');
+                    $$('#inp-email').val('');
+                    $$('#inp-tel').val('');
+                    $$('#inp-msg').val('');
+                  })
+                }
+                  
+                );
+              } else {
+                app.dialog.alert('Revisa que tu correo este escrito correctamente y vuelve a enviar el formulario. Gracias.','Formulario incompleto');
+              }
+            } else {
+              app.dialog.alert('Revisa que tu teléfono sea de 10 dígitos y vuelve a enviar el formulario. Gracias.','Formulario incompleto');
+            }
+           
+          } else {
+            app.dialog.alert('Porfavor ingresa un nombre y vuelve a intentar enviar el formulario. Gracias.','Formulario incompleto');
+          }
+
+          
+        });
 
         document.addEventListener('gesturestart', function (egg) {
             egg.preventDefault();
